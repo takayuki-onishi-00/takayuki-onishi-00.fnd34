@@ -183,7 +183,8 @@ function rollDice() {
         tempResult[9] = 0;
       }
       //B.ストレートの役
-      if(tempResult[0] == 1 && tempResult[1] == 2 && tempResult[2] == 3 && tempResult[3] == 4 && tempResult[4] == 5){
+      if(tempResult[0] == 1 && tempResult[1] == 2 && tempResult[2] == 3 && tempResult[3] == 4 && tempResult[4] == 5 ||
+        tempResult[1] == 2 && tempResult[2] == 3 && tempResult[3] == 4 && tempResult[4] == 5 && tempResult[5] == 6 ){
         tempResult[10] = 30;
       }else{
         tempResult[10] = 0;
@@ -205,13 +206,13 @@ function rollDice() {
       }
 
       //フルハウス
-      let countZero =0;
+      let countNotZero =0;
       for(let i=0; i<=5; i++){
-        if(tempResult[i] === 0){
-          countZero ++;
+        if(tempResult[i] !== 0){
+          countNotZero ++;
         }
       }
-      if(countZero === 4){
+      if(countNotZero === 2){
         tempResult[8] = sum;
       }else{
         tempResult[8] =0;
