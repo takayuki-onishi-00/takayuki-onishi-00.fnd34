@@ -74,10 +74,11 @@ function rollDice() {
     //rollCountも0にクリア
     let confirmed;
     function confirmedAndClear(tempResult,lastResult) {
-      resultDisplayCount++;
+
     for(const key in handName) {
       const button = document.getElementById(handName[key]);
       button.addEventListener("click", () =>{
+        resultDisplayCount++;
         confirmed =button.id;
         button.classList.add("hand");
         lastResult[key] = document.getElementById(confirmed).innerHTML;
@@ -103,10 +104,11 @@ function rollDice() {
         rollCount = 0;
       },{once: true})
     }
-    if(resultDisplayCount === 13) {
+    const hand = document.getElementsByClassName("hand");
+    console.log(hand.length)
+    if(hand.length === 12) {
       document.getElementById("result-display").innerHTML =
       `あなたの得点は${total}点でした！！！`;
-      document.getElementById("clear").classList.remove("choose");
     }
   }
 
@@ -119,7 +121,7 @@ function rollDice() {
   let sixNum = [];
   const numArray =[];
 
-  
+
   function handCalc(diceResult) {
     for(let i=0; i<=diceResult.length; i++) {
       if(i == 0) {
