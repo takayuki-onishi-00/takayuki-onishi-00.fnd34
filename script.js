@@ -105,7 +105,6 @@ function rollDice() {
       },{once: true})
     }
     const hand = document.getElementsByClassName("hand");
-    console.log(hand.length)
     if(hand.length === 12) {
       document.getElementById("result-display").innerHTML =
       `あなたの得点は${total}点でした！！！`;
