@@ -28,6 +28,19 @@ const lastResult =[0,0,0,0,0,0,0,0,0,0,0,0,];
 const tempResult =[0,0,0,0,0,0,0,0,0,0,0,0,0];
 const judgeRoleDice = [0,0,0,0,0];
 
+function ikasama(){
+  let destiny = Math.floor( Math.random() * 2) + 1;
+  if(destiny === 1){
+    let dice = window.prompt("入力");
+    const kekka = [];
+    for(const element of dice){
+      kekka.push(Number(element));
+    }
+    console.log("kekka"+kekka)
+    return handCalc(kekka);
+  }
+}
+
 //サイコロを振る
 //サイコロ5個の目を配列に保存
 
@@ -105,6 +118,7 @@ function rollDice() {
       },{once: true})
     }
     const hand = document.getElementsByClassName("hand");
+    console.log(hand.length)
     if(hand.length === 12) {
       document.getElementById("result-display").innerHTML =
       `あなたの得点は${total}点でした！！！`;
@@ -122,6 +136,7 @@ function rollDice() {
 
 
   function handCalc(diceResult) {
+    console.log("dicereslut : "+diceResult)
     for(let i=0; i<=diceResult.length; i++) {
       if(i == 0) {
           oneNum = diceResult.filter((element)=> element == 1);
@@ -188,8 +203,9 @@ function rollDice() {
       }else{
         tempResult[10] = 0;
       }
+      //ヨット
       if(tempResult[0] === 5 || tempResult[1] === 10 || tempResult[2] === 15 || tempResult[3] === 20 || 
-        tempResult[4] === 25) {
+        tempResult[4] === 25 || tempResult[5] === 30) {
           tempResult[11] = 50;
       }else{
          tempResult[11] = 0;
@@ -216,6 +232,8 @@ function rollDice() {
       }else{
         tempResult[8] =0;
       }
+      console.log("temp : "+tempResult)
+      console.log("last :"+lastResult)
     return sumResultDisplay(tempResult,lastResult);
   }
 
