@@ -5,18 +5,20 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="theme-color" content="#000000">
-<!--   <script type="text/javascript" src="modules/lodash.js"></script>
-  <script type="text/javascript" src="modules/test-boilerplate.js"></script> -->
+  <script type="text/javascript" src="modules/lodash.js"></script>
+  <script type="text/javascript" src="modules/test-boilerplate.js"></script>
   <script type="text/javascript" src="script.js"></script>
   <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
   <title>ヨットゲーム⛵</title>
-  <h1 class="title" id="title">ヨット</h1>
+  <h1 class="title" id="title">サイコロゲーム（ヨット）  </h1>
+  <img src="yocht.jpg" width="100px" hight="100px"></img>
+  <p><button class="ikasama" onclick="ikasama();">???</button></p>
+
   <div id="result-display"></div>
   <p><button onclick="rollDice();">　サイコロを振る🎲　</button></p>
-
   <div class="me">
     <span id="result1"></span>
     <img id="result1-img" src="1.jpg" width = "50" height="50"> </img>
@@ -119,5 +121,21 @@
       </tr>
     </tbody>
   </table>
+  <div class="discript">
+    <p class="bold">【ルール】</p>
+    <p >・5つのさいころを3回まで振ることができる</p>
+    <p >・出た目に応じて役を選択する</p>
+    <p >・同じ役は1度しか選択できず、12の役が埋まったらその合計点が得点</p>
+    <p class="bold">【作ったもの】</p>
+    <p>ヨットゲーム</p>
+    <p class="bold">【フロー】</p>
+    <p>さいころ回す→配列に出目を格納→出目から役を計算→確定されれば、最終の配列に保存→全部埋まったら終了</p>
+    <p class="bold">【難しかったこと】</p>
+    <p>・0から考え、挙動を言語化し、コードに落とし込むこと</p>
+    <p>→DOM操作、ダイスの目の保存や参照</p>
+    <p class="bold">【まとめ】</p>
+    <p>今回の講義を受け、javascript/html/cssの基礎から学ぶことができ、知識を深めることができた。</p>
+    <p>まだ理解しきれていない部分もあるので、フォローアップ期間で復習を進めて、より理解を深め、自分のものにしていきたい</p>
+
 </body>
 </html>
