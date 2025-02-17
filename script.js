@@ -118,7 +118,6 @@ function rollDice() {
       },{once: true})
     }
     const hand = document.getElementsByClassName("hand");
-    console.log(hand.length)
     if(hand.length === 12) {
       document.getElementById("result-display").innerHTML =
       `あなたの得点は${total}点でした！！！`;
@@ -136,7 +135,6 @@ function rollDice() {
 
 
   function handCalc(diceResult) {
-    console.log("dicereslut : "+diceResult)
     for(let i=0; i<=diceResult.length; i++) {
       if(i == 0) {
           oneNum = diceResult.filter((element)=> element == 1);
@@ -232,8 +230,6 @@ function rollDice() {
       }else{
         tempResult[8] =0;
       }
-      console.log("temp : "+tempResult)
-      console.log("last :"+lastResult)
     return sumResultDisplay(tempResult,lastResult);
   }
 
