@@ -14,8 +14,7 @@ const handName = {
     9 : "self-min-straight",
     10 : "self-max-straight",
     11 : "self-yocht",
-};
-
+}; 
 const initialValue = 0;
 let sum=0;
 let resultDisplayCount = 0;
