@@ -250,10 +250,10 @@ function rollDice() {
 
   function end(){
      for(const key in handName) {
-         document.getElementById(handName[key]) === 0;
+         document.getElementById(handName[key]).innerText === 0;
      }
      document.getElementById("result-display").innerHTML =
-     `あなたの得点は0点でした！！！`;
-     `悪いことはしちゃダメです！`
+     `あなたの得点は0点でした！！！`</br>`悪いことはしちゃダメです！`;
+
   }
 
