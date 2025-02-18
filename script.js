@@ -26,17 +26,20 @@ const diceResult = [];
 const lastResult =[0,0,0,0,0,0,0,0,0,0,0,0,];
 const tempResult =[0,0,0,0,0,0,0,0,0,0,0,0,0];
 const judgeRoleDice = [0,0,0,0,0];
+let ikasamaCount = 0;
 
 function ikasama(){
-  let destiny = Math.floor( Math.random() * 2) + 1;
-  if(destiny === 1){
-    let dice = window.prompt("入力");
-    const kekka = [];
+  ikasamaCount ++;
+  let dest = Math.floor( Math.random() * 2) + ikasamaCount;
+  if(ikasamaCount === 1 || (ikasamaCount !==1 && dest === 1)){
+    let dice = window.prompt("欲しいダイスは？（5けたで）");
+    const result = [];
     for(const element of dice){
-      kekka.push(Number(element));
+      result.push(Number(element));
     }
-    console.log("kekka"+kekka)
-    return handCalc(kekka);
+    return handCalc(result);
+  }else{
+    return end();
   }
 }
 
@@ -244,3 +247,13 @@ function rollDice() {
     }
     return confirmedAndClear(tempResult,lastResult);
   }
+
+  function end(){
+     for(const key in handName) {
+         document.getElementById(handName[key]) === 0;
+     }
+     document.getElementById("result-display").innerHTML =
+     `あなたの得点は0点でした！！！`;
+     `悪いことはしちゃダメです！`
+  }
+
