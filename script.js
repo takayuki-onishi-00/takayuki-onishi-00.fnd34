@@ -54,7 +54,7 @@ function rollDice() {
         const choose1 = document.getElementById(`result${i}-img`);
         const choose = document.getElementById(`result${i}`);
         choose1.addEventListener("click", () =>{
-          choose.classList.toggle(`choose`);
+          choose1.classList.toggle(`choose`);
           rollNum = document.getElementsByClassName("choose").length;
           judgeRoleDice[i-1] = Number(document.getElementById(`result${i}`).innerHTML);
           document.getElementById(`result${i}-img`).src = `${judgeRoleDice[i-1]}_.jpg`;
