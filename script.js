@@ -34,7 +34,7 @@ function ikasama(){
   if(ikasamaCount === 1 || (ikasamaCount !==1 && dest === 1)){
     let dice = window.prompt("欲しいダイスは？（5けたで）");
     const result = [];
-    for(const element of dice){
+    for(const element of result){
       result.push(Number(element));
     }
     return handCalc(result);
