@@ -253,7 +253,7 @@ function rollDice() {
          document.getElementById(handName[key]).innerText === 0;
      }
      document.getElementById("result-display").innerHTML =
-     `あなたの得点は0点でした！！！`</br>`悪いことはしちゃダメです！`;
+     `あなたの得点は0点でした！！！</br>悪いことはしちゃダメです！`;
 
   }
 
