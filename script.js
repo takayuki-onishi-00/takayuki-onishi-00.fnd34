@@ -244,7 +244,4 @@ function rollDice() {
     }
     return confirmedAndClear(tempResult,lastResult);
   }
-     `あなたの得点は0点でした！！！</br>悪いことはしちゃダメです！`;
-
-  }
 
