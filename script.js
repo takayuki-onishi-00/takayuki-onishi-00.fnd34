@@ -26,21 +26,18 @@ const diceResult = [];
 const lastResult =[0,0,0,0,0,0,0,0,0,0,0,0,];
 const tempResult =[0,0,0,0,0,0,0,0,0,0,0,0,0];
 const judgeRoleDice = [0,0,0,0,0];
-let ikasamaCount = 0;
 
 function ikasama(){
-  ikasamaCount ++;
-  let dest = Math.floor( Math.random() * 2) + ikasamaCount;
-  if(ikasamaCount === 1 || (ikasamaCount !==1 && dest === 1)){
-    let dice = window.prompt("欲しいダイスは？（5けたで）");
+  let dest = Math.floor( Math.random() * 2) + 5;
+  if( dest === 1 ){
+    let dice = window.prompt("5ケタ入力");
     const result = [];
     for(const element of result){
       result.push(Number(element));
     }
     return handCalc(result);
-  }else{
-    return end();
   }
+    window.aleart("はずれ");
 }
 
 //サイコロを振る
@@ -247,12 +244,6 @@ function rollDice() {
     }
     return confirmedAndClear(tempResult,lastResult);
   }
-
-  function end(){
-     for(const key in handName) {
-         document.getElementById(handName[key]).innerText === 0;
-     }
-     document.getElementById("result-display").innerHTML =
      `あなたの得点は0点でした！！！</br>悪いことはしちゃダメです！`;
 
   }
