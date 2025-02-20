@@ -2,8 +2,9 @@ table {
   border-collapse: collapse;
   border: 2px solid rgb(140 140 140);
   font-family: sans-serif;
-  font-size: 0.8rem;
+  font-size: 10px;
   letter-spacing: 1px;
+ 
 }
 
 caption {
@@ -45,7 +46,9 @@ tfoot td {
 }
 
 .choose{
-  background-color: red;
+  background-color: orange;
+  height: 70px;
+  width: 70px;
 }
 
 #result1{
@@ -71,7 +74,7 @@ body{
 .centered-table{
   margin-left: auto;
   margin-right: auto;
-  width: 50%;
+   width: 90%; 
 }
 
 .title {
@@ -87,8 +90,8 @@ body{
 
   .discript{
     background-color: azure;
-    margin-left: 300px;
-    margin-right: 300px;
+    margin-left: auto;
+    margin-right: auto;
       text-align: left;
   }
 
@@ -98,4 +101,8 @@ body{
   .ikasama{
     margin-right: 0;
     margin-top:0;
+  }
+  .background-image{
+    background: url(result2-img);
+    height: 1000px;
   }
