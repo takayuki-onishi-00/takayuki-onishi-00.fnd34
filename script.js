@@ -1,7 +1,11 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-const handName = {
+
+
+ 
+
+  const handName = {
     0 : "self-one",
     1 : "self-two",
     2 : "self-three",
@@ -28,11 +32,12 @@ const tempResult =[0,0,0,0,0,0,0,0,0,0,0,0,0];
 const judgeRoleDice = [0,0,0,0,0];
 
 function ikasama(){
-  let dest = Math.floor( Math.random() * 2) + 5;
+  let dest = Math.floor( Math.random() * 5) + 1;
   if( dest === 1 ){
     let dice = window.prompt("5ケタ入力");
+    console.log(dice)
     const result = [];
-    for(const element of result){
+    for(const element of dice){
       result.push(Number(element));
     }
     return handCalc(result);
@@ -44,7 +49,7 @@ function ikasama(){
 
 function rollDice() {
   rollCount= rollCount + 1; 
-  if(rollCount > 3){
+  if(rollCount > 30){
     window.alert("役を選択してください");
   }else{
     //ダイスの保存をクリックしたら、クラスをchooseでトグル
@@ -54,9 +59,9 @@ function rollDice() {
         const choose = document.getElementById(`result${i}`);
         choose1.addEventListener("click", () =>{
           choose1.classList.toggle(`choose`);
-          rollNum = document.getElementsByClassName("choose").length;
+          //rollNum = document.getElementsByClassName("choose").length;
           judgeRoleDice[i-1] = Number(document.getElementById(`result${i}`).innerHTML);
-          document.getElementById(`result${i}-img`).src = `${judgeRoleDice[i-1]}_.jpg`;
+         // document.getElementById(`result${i}-img`).src = `${judgeRoleDice[i-1]}_.jpg`;
           handCalc(diceResult);
         });
         //ロール1回目であれば、diceResultにダイス情報を格納し、
