@@ -37,7 +37,6 @@ function ikasama(){
     }
     return handCalc(result);
   }
-    window.aleart("はずれ");
 }
 
 //サイコロを振る
