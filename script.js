@@ -1,10 +1,6 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-
-
- 
-
   const handName = {
     0 : "self-one",
     1 : "self-two",
@@ -49,7 +45,7 @@ function ikasama(){
 
 function rollDice() {
   rollCount= rollCount + 1; 
-  if(rollCount > 30){
+  if(rollCount > 3){
     window.alert("役を選択してください");
   }else{
     //ダイスの保存をクリックしたら、クラスをchooseでトグル
@@ -58,11 +54,8 @@ function rollDice() {
         const choose1 = document.getElementById(`result${i}-img`);
         const choose = document.getElementById(`result${i}`);
         choose1.addEventListener("click", () =>{
-          choose1.classList.toggle(`choose`);
-          //rollNum = document.getElementsByClassName("choose").length;
+          choose1.classList.add(`choose`);
           judgeRoleDice[i-1] = Number(document.getElementById(`result${i}`).innerHTML);
-         // document.getElementById(`result${i}-img`).src = `${judgeRoleDice[i-1]}_.jpg`;
-          handCalc(diceResult);
         });
         //ロール1回目であれば、diceResultにダイス情報を格納し、
         //HTML上にサイコロの結果表示
