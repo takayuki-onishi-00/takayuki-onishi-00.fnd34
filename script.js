@@ -150,7 +150,7 @@ function chooseDiceCalc(diceResult,preDiceResult){
   // }
 
     let confirmed;
-    function confirmedAndClear(diceResultP1,tempResultP1,lastResultP1) {
+    function confirmedAndClear(diceResult,tempResult,lastResult) {
       let diceChoose = document.getElementsByName("dice");
       for(const element of diceChoose){
         element.onclick  = function(){
@@ -159,23 +159,22 @@ function chooseDiceCalc(diceResult,preDiceResult){
       }
 
     
-      for(const key in handNamePlayer1) {
-      const button = document.getElementById(handNamePlayer1[key]);
+      for(const key in handName) {
+      const button = document.getElementById(handName[key]);
       button.addEventListener("click", () =>{
-        p1p2=0;
-        resultDisplayCountP1++;
+        resultDisplayCount++;
         confirmed =button.id;
         button.classList.add("hand");
-        lastResultP1[key] = document.getElementById(confirmed).innerHTML;
-        total = lastResultP1.reduce(
+        lastResult[key] = document.getElementById(confirmed).innerHTML;
+        total = lastResult.reduce(
           (accumulator, currentValue) => Number(accumulator) + Number(currentValue),
         initialValue,
         );
         document.getElementById("self-total").innerHTML = total;
      
-        for(let i = 0; i < lastResultP1.length; i++) {
-          if( lastResultP1[i] === 0 ) {
-            const button = document.getElementById(handNamePlayer1[i]);
+        for(let i = 0; i < lastResult.length; i++) {
+          if( lastResult[i] === 0 ) {
+            const button = document.getElementById(handName[i]);
             button.innerHTML = "";
           } 
         }
