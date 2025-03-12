@@ -1,7 +1,7 @@
 'use strict'
 // 1行目に記載している 'use strict' は削除しないでください
 
-  const handName = {
+const handName = {
     0 : "self-one",
     1 : "self-two",
     2 : "self-three",
@@ -15,6 +15,21 @@
     10 : "self-max-straight",
     11 : "self-yocht",
 }; 
+// const handNamePlayer2 = {
+//   0 : "com-one",
+//   1 : "com-two",
+//   2 : "com-three",
+//   3 : "com-four",
+//   4 : "com-five",
+//   5 : "com-six",
+//   6 : "com-choice",
+//   7 : "com-four-dice",
+//   8 : "com-full-house",
+//   9 : "com-min-straight",
+//   10 : "com-max-straight",
+//   11 : "com-yocht",
+// }; 
+
 const initialValue = 0;
 let sum=0;
 let resultDisplayCount = 0;
@@ -23,6 +38,7 @@ let rollNum = 0;
 let total =0;
 let rollCount = 0;
 const diceResult = [];
+const preDiceResult = [];
 const lastResult =[0,0,0,0,0,0,0,0,0,0,0,0,];
 const tempResult =[0,0,0,0,0,0,0,0,0,0,0,0,0];
 const judgeRoleDice = [0,0,0,0,0];
@@ -40,43 +56,9 @@ const judgeRoleDice = [0,0,0,0,0];
 //   }
 // }
 
-// //サイコロを振る
-// //サイコロ5個の目を配列に保存
+//サイコロを振る
+//サイコロ5個の目を配列に保存
 
-// function rollDice() {
-//   rollCount= rollCount + 1; 
-//   if(rollCount > 3){
-//     window.alert("役を選択してください");
-//   }else{
-//     //ダイスの保存をクリックしたら、クラスをchooseでトグル
-//     //judgeRoleDiceにダイス情報を保存
-//       for(let i=1; i<=5; i++) {
-//         const choose1 = document.getElementById(`result${i}-img`);
-//         const choose = document.getElementById(`result${i}`);
-//         choose1.addEventListener("click", () =>{
-//           choose1.classList.add(`choose`);
-//           judgeRoleDice[i-1] = Number(document.getElementById(`result${i}`).innerHTML);
-//         });
-//         //ロール1回目であれば、diceResultにダイス情報を格納し、
-//         //HTML上にサイコロの結果表示
-//         if(rollCount === 1) {
-//           let number = Math.floor( Math.random() * 6) +1;
-//           diceResult[i-1] = number;
-//           document.getElementById(`result${i}-img`).src = `${number}.jpg`;
-//           document.getElementById(`result${i}`).innerHTML = number;
-//         //ロール2回目以降、judgeRoleDiceが0 = ダイス保存がされていなければ、
-//         //diceResultにダイス情報を格納しHTMLに表示
-//         //それ以外の時は、何もしない
-//         }else if(rollCount !== 1 && judgeRoleDice[i-1] === 0 ) {
-//           let number = Math.floor( Math.random() * 6) + 1;
-//           diceResult[i-1] = number;
-//           document.getElementById(`result${i}-img`).src = `${number}.jpg`;
-//           document.getElementById(`result${i}`).innerHTML = number;
-//         }
-//       }
-//     }
-//     return handCalc(diceResult);
-//   }
 function rollDice(){
   rollCount= rollCount + 1; 
   if(rollCount > 30){
@@ -89,6 +71,7 @@ function rollDice(){
       }
       diceResult[i] = number;
     }
+    console.log("aaaaa")
     return chooseDiceCalc(diceResult,preDiceResult);
   }
 }
@@ -107,48 +90,18 @@ function chooseDiceCalc(diceResult,preDiceResult){
 
 }
 
+// let sum=0;
+// let resultDisplayCount = 0;
+// let total =0;
+// const lastResult =[0,0,0,0,0,0,0,0,0,0,0,0,];
+// const tempResult =[0,0,0,0,0,0,0,0,0,0,0,0,0];
+// function player1(diceResult){
+
+  // const judgeRoleDice = [0,0,0,0,0];
+  
     //役を確定ボタンが押されたとき、押された役の情報を
     //lastResultに格納し、それ以外の役の情報をクリア
     //rollCountも0にクリア
-  //   let confirmed;
-  //   function confirmedAndClear(tempResult,lastResult) {
-
-  //   for(const key in handName) {
-  //     const button = document.getElementById(handName[key]);
-  //     button.addEventListener("click", () =>{
-  //       resultDisplayCount++;
-  //       confirmed =button.id;
-  //       button.classList.add("hand");
-  //       lastResult[key] = document.getElementById(confirmed).innerHTML;
-  //       total = lastResult.reduce(
-  //         (accumulator, currentValue) => Number(accumulator) + Number(currentValue),
-  //       initialValue,
-  //       );
-  //       document.getElementById("self-total").innerHTML = total;
-     
-  //       for(let i = 0; i < lastResult.length; i++) {
-  //         if( lastResult[i] === 0 ) {
-  //           const button = document.getElementById(handName[i]);
-  //           button.innerHTML = "";
-  //         } 
-  //       }
-  //       const deleteClass = document.getElementsByClassName("choose"); 
-  //       for(let i=0; i<deleteClass.length; i++){
-  //         deleteClass[i].classList.remove("choose");
-  //       }
-  //       for(let i=0; i<5; i++){
-  //         judgeRoleDice[i] = 0;
-  //       }
-  //       rollCount = 0;
-  //     },{once: true})
-  //   }
-  //   const hand = document.getElementsByClassName("hand");
-  //   if(hand.length === 12) {
-  //     document.getElementById("result-display").innerHTML =
-  //     `あなたの得点は${total}点でした！！！`;
-  //   }
-  // }
-
     let confirmed;
     function confirmedAndClear(diceResult,tempResult,lastResult) {
       let diceChoose = document.getElementsByName("dice");
@@ -196,59 +149,42 @@ function chooseDiceCalc(diceResult,preDiceResult){
   }
 
  //役ごとの合計処理
-  let oneNum = [];
-  let twoNum = [];
-  let threeNum = [];
-  let fourNum = [];
-  let fiveNum = [];
-  let sixNum = [];
-  const numArray =[];
 
+  function sumDiceNum(result, tempResult, num){
+    tempResult[num] = result.reduce(
+      (accumulator, currentValue) => accumulator + currentValue,
+    initialValue,
+  );
+  return tempResult;
+  }
 
   function handCalc(diceResult) {
+    let oneNum = [];
+    let twoNum = [];
+    let threeNum = [];
+    let fourNum = [];
+    let fiveNum = [];
+    let sixNum = [];
+  
     for(let i=0; i<=diceResult.length; i++) {
       if(i == 0) {
-          oneNum = diceResult.filter((element)=> element == 1);
-          numArray[i] = oneNum.length;
-          tempResult[i] = oneNum.reduce(
-            (accumulator, currentValue) => accumulator + currentValue,
-          initialValue,
-        );
+        oneNum = diceResult.filter((element)=> element == 1);
+        sumDiceNum(oneNum, tempResult, i);
       }else if(i == 1) {
-          twoNum = diceResult.filter((element)=> element == 2);
-          numArray[i] = twoNum.length;
-          tempResult[i] = twoNum.reduce(
-            (accumulator, currentValue) => accumulator + currentValue,
-          initialValue,
-        );
+        twoNum = diceResult.filter((element)=> element == 2);
+        sumDiceNum(twoNum, tempResult, i);
       }else if(i == 2) {
         threeNum = diceResult.filter((element)=> element == 3);
-        numArray[i] = threeNum.length;
-        tempResult[i] = threeNum.reduce(
-          (accumulator, currentValue) => accumulator + currentValue,
-        initialValue,
-      );
+        sumDiceNum(threeNum, tempResult, i);
       }else if(i == 3) {
         fourNum = diceResult.filter((element)=> element == 4);
-        numArray[i] = fourNum.length;
-        tempResult[i] = fourNum.reduce(
-          (accumulator, currentValue) => accumulator + currentValue,
-        initialValue,
-      );
+        sumDiceNum(fourNum, tempResult, i);
       }else if(i == 4) {
         fiveNum = diceResult.filter((element)=> element == 5);
-        numArray[i] = fiveNum.length;
-        tempResult[i] = fiveNum.reduce(
-          (accumulator, currentValue) => accumulator + currentValue,
-        initialValue,
-      );
+        sumDiceNum(fiveNum, tempResult, i);
       }else if(i == 5) {
         sixNum = diceResult.filter((element)=> element == 6);
-        numArray[i] = sixNum.length;
-        tempResult[i] = sixNum.reduce(
-          (accumulator, currentValue) => accumulator + currentValue,
-        initialValue,
-      );
+        sumDiceNum(sixNum, tempResult, i);
       }
     }
     sum = diceResult.reduce(
@@ -279,7 +215,6 @@ function chooseDiceCalc(diceResult,preDiceResult){
       }else{
          tempResult[11] = 0;
       }
-
       //フォーダイス
       if(oneNum.length >= 4 || twoNum.length >= 4 ||
          threeNum.length >= 4 || fourNum.length >= 4 ||
@@ -288,7 +223,6 @@ function chooseDiceCalc(diceResult,preDiceResult){
       }else{
         tempResult[7] = 0;
       }
-
       //フルハウス
       let countNotZero =0;
       for(let i=0; i<=5; i++){
@@ -301,11 +235,11 @@ function chooseDiceCalc(diceResult,preDiceResult){
       }else{
         tempResult[8] =0;
       }
-    return sumResultDisplay(tempResult,lastResult);
+    return sumResultDisplay(diceResult,tempResult,lastResult);
   }
 
   //合計処理結果のHTMLへの表示
-  function sumResultDisplay(tempResult,lastResult){   
+  function sumResultDisplay(diceResult,tempResult,lastResult){   
     for(let i=0; i<lastResult.length; i++){
       let yaku = handName[i];
       if(lastResult[i] === 0 ){
@@ -314,6 +248,6 @@ function chooseDiceCalc(diceResult,preDiceResult){
         document.getElementById(yaku).innerHTML = lastResult[i];
       }
     }
-    return confirmedAndClear(tempResult,lastResult);
+    return confirmedAndClear(diceResult,tempResult,lastResult);
   }
-
+// }
