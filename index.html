@@ -14,21 +14,21 @@
   <title>ヨットゲーム⛵</title>
   <h1 class="title" id="title">サイコロゲーム（ヨット）  </h1>
   <img src="yocht.jpg" width="100px" hight="100px"></img>
-<!--   <p><button class="ikasama" onclick="ikasama();">???</button></p> -->
+  <!-- <p><button class="ikasama" onclick="ikasama();">???</button></p> -->
 
-  <div id="result-display"></div>
+  <!-- <div id="result-display"></div> -->
   <p><button onclick="rollDice();">　サイコロを振る🎲　</button></p>
-  <div class="me">
-    <span id="result1"></span>
-    <img id="result1-img" src="1.jpg" width = "50" height="50"> </img>
-    <span id="result2"> </span>
-    <img id="result2-img" src="2.jpg" width = "50" height="50"> </img>
-    <span id="result3"> </span>
-    <img id="result3-img" src="3.jpg" width = "50" height="50"> </img>
-    <span id="result4"> </span>
-    <img id="result4-img" src="4.jpg" width = "50" height="50"> </img>
-    <span id="result5"> </span>
-    <img id="result5-img" src="5.jpg" width = "50" height="50"> </img>
+  <div id="result-display" class="dice-result">
+    <!-- <span id="result1"></span> -->
+    <img name="dice" id="1" src="1.jpg" width = "50" height="50"> </img>
+    <!-- <span id="result2"> </span> -->
+    <img name="dice" id="2" src="2.jpg" width = "50" height="50"> </img>
+    <!-- <span id="result3"> </span> -->
+    <img name="dice" id="3" src="3.jpg" width = "50" height="50"> </img>
+    <!-- <span id="result4"> </span> -->
+    <img name="dice" id="4" src="4.jpg" width = "50" height="50"> </img>
+    <!-- <span id="result5"> </span> -->
+    <img name="dice" id="5" src="5.jpg" width = "50" height="50"> </img>
   </div>
 
   <table class="centered-table">
@@ -36,7 +36,7 @@
       <tr>
         <th scope="col">役</th>
         <th scope="col">あなた</th>
-<!--         <th scope="col">COM</th> -->
+        <!-- <th scope="col">COM</th> -->
         <th scope="col">説明</th>
       </tr>
     </thead>
@@ -44,78 +44,78 @@
       <tr>
         <th scope="row" width="70px">エース</th>
         <td scope="row" width="80px" id ="self-one"></td>
-<!--         <td scope="row" width="100px" id="com-one"></td> -->
+        <!-- <td scope="row" width="100px" id="com-one"></td> -->
         <td scope="row" width="120px" >任意の組合せ</td>
       </tr>
       <tr>
         <th scope="row">デュース</th>
         <td scope="row" id="self-two"></td>
-<!--         <td scope="row" id="com-two"></td> -->
+        <!-- <td scope="row" id="com-two"></td> -->
         <td scope="row" class="discription">任意の組合せ</td>
       </tr>
       <tr>
         <th scope="row">トレイ</th>
         <td scope="row" id="self-three"></td>
-<!--         <td scope="row" id="com-three"></td> -->
+        <!-- <td scope="row" id="com-three"></td> -->
         <td scope="row">任意の組合せ</td>
       </tr>
       <tr>
         <th scope="row">フォー</th>
         <td scope="row" id="self-four"></td>
-<!--         <td scope="row" id="com-four"></td> -->
+        <!-- <td scope="row" id="com-four"></td> -->
         <td scope="row">任意の組合せ</td>
       </tr>
       <tr>
         <th scope="row">ファイブ</th>
         <td scope="row" id="self-five"></td>
-<!--         <td scope="row" id="com-five"></td> -->
+        <!-- <td scope="row" id="com-five"></td> -->
         <td scope="row">任意の組合せ</td>
       </tr>
       <tr>
         <th scope="row">シックス</th>
         <td scope="row" id="self-six"></td>
-<!--         <td scope="row" id="com-six"></td> -->
+        <!-- <td scope="row" id="com-six"></td> -->
         <td scope="row">任意の組合せ</td>
       </tr>
       <tr>
         <th scope="row">チョイス</th>
         <td scope="row" id="self-choice"></td>
-<!--         <td scope="row" id="com-choice"></td> -->
+        <!-- <td scope="row" id="com-choice"></td> -->
         <td scope="row">任意の組合せ</td>
       </tr>
         <th scope="row">フォーダイス</th>
         <td scope="row" id="self-four-dice"></td>
-<!--         <td scope="row" id="com-four-dice"></td> -->
+        <!-- <td scope="row" id="com-four-dice"></td> -->
         <td scope="row">同じ目(4つ以上)</td>
       </tr>
       <tr>
         <th scope="row">フルハウス</th>
         <td scope="row" id="self-full-house"></td>
-<!--         <td scope="row" id="com-full-house"></td> -->
+        <!-- <td scope="row" id="com-full-house"></td> -->
         <td scope="row">同じ目(3つと2つペア)</td>
       </tr>
       <tr>
         <th scope="row">S.ストレート</th>
         <td scope="row" id="self-min-straight"></td>
-<!--         <td scope="row" id="com-min-straight"></td> -->
+        <!-- <td scope="row" id="com-min-straight"></td> -->
         <td scope="row">目の連続(4つ以上)</td>
       </tr>
       <tr>
         <th scope="row">B.ストレート</th>
         <td scope="row" id="self-max-straight"></td>
-<!--         <td scope="row" id="com-max-straight"></td> -->
+        <!-- <td scope="row" id="com-max-straight"></td> -->
         <td scope="row">目の連続(5つ)</td>
       </tr>
       <tr>
         <th scope="row">ヨット⛵</th>
         <td scope="row" id="self-yocht"></td>
-<!--         <td scope="row" id="com-yocht"></td> -->
+        <!-- <td scope="row" id="com-yocht"></td> -->
         <td scope="row">目がすべて同じ</td>
       </tr>
       <tr>
         <th scope="row">計</th>
         <td scope="row" id="self-total"></td>
-<!--         <td scope="row" id="com-total"></td> -->
+        <!-- <td scope="row" id="com-total"></td> -->
         <td scope="row">合計</td>
       </tr>
     </tbody>
