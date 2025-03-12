@@ -61,7 +61,7 @@ const judgeRoleDice = [0,0,0,0,0];
 
 function rollDice(){
   rollCount= rollCount + 1; 
-  if(rollCount > 30){
+  if(rollCount > 3){
     window.alert("役を選択してください");
   }else{
     for(let i=0; i<=4; i++) {
