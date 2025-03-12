@@ -27,56 +27,85 @@ const lastResult =[0,0,0,0,0,0,0,0,0,0,0,0,];
 const tempResult =[0,0,0,0,0,0,0,0,0,0,0,0,0];
 const judgeRoleDice = [0,0,0,0,0];
 
-function ikasama(){
-  let dest = Math.floor( Math.random() * 5) + 1;
-  if( dest === 1 ){
-    let dice = window.prompt("5ケタ入力");
-    console.log(dice)
-    const result = [];
-    for(const element of dice){
-      result.push(Number(element));
+// function ikasama(){
+//   let dest = Math.floor( Math.random() * 5) + 1;
+//   if( dest === 1 ){
+//     let dice = window.prompt("5ケタ入力");
+//     console.log(dice)
+//     const result = [];
+//     for(const element of dice){
+//       result.push(Number(element));
+//     }
+//     return handCalc(result);
+//   }
+// }
+
+// //サイコロを振る
+// //サイコロ5個の目を配列に保存
+
+// function rollDice() {
+//   rollCount= rollCount + 1; 
+//   if(rollCount > 3){
+//     window.alert("役を選択してください");
+//   }else{
+//     //ダイスの保存をクリックしたら、クラスをchooseでトグル
+//     //judgeRoleDiceにダイス情報を保存
+//       for(let i=1; i<=5; i++) {
+//         const choose1 = document.getElementById(`result${i}-img`);
+//         const choose = document.getElementById(`result${i}`);
+//         choose1.addEventListener("click", () =>{
+//           choose1.classList.add(`choose`);
+//           judgeRoleDice[i-1] = Number(document.getElementById(`result${i}`).innerHTML);
+//         });
+//         //ロール1回目であれば、diceResultにダイス情報を格納し、
+//         //HTML上にサイコロの結果表示
+//         if(rollCount === 1) {
+//           let number = Math.floor( Math.random() * 6) +1;
+//           diceResult[i-1] = number;
+//           document.getElementById(`result${i}-img`).src = `${number}.jpg`;
+//           document.getElementById(`result${i}`).innerHTML = number;
+//         //ロール2回目以降、judgeRoleDiceが0 = ダイス保存がされていなければ、
+//         //diceResultにダイス情報を格納しHTMLに表示
+//         //それ以外の時は、何もしない
+//         }else if(rollCount !== 1 && judgeRoleDice[i-1] === 0 ) {
+//           let number = Math.floor( Math.random() * 6) + 1;
+//           diceResult[i-1] = number;
+//           document.getElementById(`result${i}-img`).src = `${number}.jpg`;
+//           document.getElementById(`result${i}`).innerHTML = number;
+//         }
+//       }
+//     }
+//     return handCalc(diceResult);
+//   }
+function rollDice(){
+  rollCount= rollCount + 1; 
+  if(rollCount > 30){
+    window.alert("役を選択してください");
+  }else{
+    for(let i=0; i<=4; i++) {
+      let number = Math.floor( Math.random() * 6) + 1;
+      if(rollCount != 1){
+        preDiceResult[i] = diceResult[i];
+      }
+      diceResult[i] = number;
     }
-    return handCalc(result);
+    return chooseDiceCalc(diceResult,preDiceResult);
   }
 }
 
-//サイコロを振る
-//サイコロ5個の目を配列に保存
-
-function rollDice() {
-  rollCount= rollCount + 1; 
-  if(rollCount > 3){
-    window.alert("役を選択してください");
-  }else{
-    //ダイスの保存をクリックしたら、クラスをchooseでトグル
-    //judgeRoleDiceにダイス情報を保存
-      for(let i=1; i<=5; i++) {
-        const choose1 = document.getElementById(`result${i}-img`);
-        const choose = document.getElementById(`result${i}`);
-        choose1.addEventListener("click", () =>{
-          choose1.classList.add(`choose`);
-          judgeRoleDice[i-1] = Number(document.getElementById(`result${i}`).innerHTML);
-        });
-        //ロール1回目であれば、diceResultにダイス情報を格納し、
-        //HTML上にサイコロの結果表示
-        if(rollCount === 1) {
-          let number = Math.floor( Math.random() * 6) +1;
-          diceResult[i-1] = number;
-          document.getElementById(`result${i}-img`).src = `${number}.jpg`;
-          document.getElementById(`result${i}`).innerHTML = number;
-        //ロール2回目以降、judgeRoleDiceが0 = ダイス保存がされていなければ、
-        //diceResultにダイス情報を格納しHTMLに表示
-        //それ以外の時は、何もしない
-        }else if(rollCount !== 1 && judgeRoleDice[i-1] === 0 ) {
-          let number = Math.floor( Math.random() * 6) + 1;
-          diceResult[i-1] = number;
-          document.getElementById(`result${i}-img`).src = `${number}.jpg`;
-          document.getElementById(`result${i}`).innerHTML = number;
-        }
-      }
-    }
-    return handCalc(diceResult);
+function chooseDiceCalc(diceResult,preDiceResult){
+  let diceChooseClass = document.getElementsByClassName("choose");
+  let dice = document.getElementsByName("dice")
+  for(const element of diceChooseClass){
+    diceResult[element.id -1] = preDiceResult[element.id -1];
   }
+
+  for(const element of dice){
+    element.src = `${diceResult[element.id - 1]}.jpg`;
+  }
+  handCalc(diceResult)
+
+}
 
     //役を確定ボタンが押されたとき、押された役の情報を
     //lastResultに格納し、それ以外の役の情報をクリア
