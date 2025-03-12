@@ -110,25 +110,72 @@ function chooseDiceCalc(diceResult,preDiceResult){
     //役を確定ボタンが押されたとき、押された役の情報を
     //lastResultに格納し、それ以外の役の情報をクリア
     //rollCountも0にクリア
-    let confirmed;
-    function confirmedAndClear(tempResult,lastResult) {
+  //   let confirmed;
+  //   function confirmedAndClear(tempResult,lastResult) {
 
-    for(const key in handName) {
-      const button = document.getElementById(handName[key]);
+  //   for(const key in handName) {
+  //     const button = document.getElementById(handName[key]);
+  //     button.addEventListener("click", () =>{
+  //       resultDisplayCount++;
+  //       confirmed =button.id;
+  //       button.classList.add("hand");
+  //       lastResult[key] = document.getElementById(confirmed).innerHTML;
+  //       total = lastResult.reduce(
+  //         (accumulator, currentValue) => Number(accumulator) + Number(currentValue),
+  //       initialValue,
+  //       );
+  //       document.getElementById("self-total").innerHTML = total;
+     
+  //       for(let i = 0; i < lastResult.length; i++) {
+  //         if( lastResult[i] === 0 ) {
+  //           const button = document.getElementById(handName[i]);
+  //           button.innerHTML = "";
+  //         } 
+  //       }
+  //       const deleteClass = document.getElementsByClassName("choose"); 
+  //       for(let i=0; i<deleteClass.length; i++){
+  //         deleteClass[i].classList.remove("choose");
+  //       }
+  //       for(let i=0; i<5; i++){
+  //         judgeRoleDice[i] = 0;
+  //       }
+  //       rollCount = 0;
+  //     },{once: true})
+  //   }
+  //   const hand = document.getElementsByClassName("hand");
+  //   if(hand.length === 12) {
+  //     document.getElementById("result-display").innerHTML =
+  //     `あなたの得点は${total}点でした！！！`;
+  //   }
+  // }
+
+    let confirmed;
+    function confirmedAndClear(diceResultP1,tempResultP1,lastResultP1) {
+      let diceChoose = document.getElementsByName("dice");
+      for(const element of diceChoose){
+        element.onclick  = function(){
+          element.classList.toggle("choose");
+        }
+      }
+
+    
+      for(const key in handNamePlayer1) {
+      const button = document.getElementById(handNamePlayer1[key]);
       button.addEventListener("click", () =>{
-        resultDisplayCount++;
+        p1p2=0;
+        resultDisplayCountP1++;
         confirmed =button.id;
         button.classList.add("hand");
-        lastResult[key] = document.getElementById(confirmed).innerHTML;
-        total = lastResult.reduce(
+        lastResultP1[key] = document.getElementById(confirmed).innerHTML;
+        total = lastResultP1.reduce(
           (accumulator, currentValue) => Number(accumulator) + Number(currentValue),
         initialValue,
         );
         document.getElementById("self-total").innerHTML = total;
      
-        for(let i = 0; i < lastResult.length; i++) {
-          if( lastResult[i] === 0 ) {
-            const button = document.getElementById(handName[i]);
+        for(let i = 0; i < lastResultP1.length; i++) {
+          if( lastResultP1[i] === 0 ) {
+            const button = document.getElementById(handNamePlayer1[i]);
             button.innerHTML = "";
           } 
         }
@@ -136,9 +183,9 @@ function chooseDiceCalc(diceResult,preDiceResult){
         for(let i=0; i<deleteClass.length; i++){
           deleteClass[i].classList.remove("choose");
         }
-        for(let i=0; i<5; i++){
-          judgeRoleDice[i] = 0;
-        }
+        // for(let i=0; i<5; i++){
+        //   judgeRoleDice[i] = 0;
+        // }
         rollCount = 0;
       },{once: true})
     }
